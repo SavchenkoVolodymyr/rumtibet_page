@@ -783,18 +783,47 @@ body {
 
 .hero__form {
   display: flex;
-  align-items: start;
-  justify-content: space-between;
-  border-radius: 1rem;
 }
 @media screen and (min-width: 1024px) {
   .hero__form {
+    align-items: start;
+    justify-content: space-between;
+    border-radius: 1rem;
     padding-top: 4rem;
     padding-inline: 4.3rem;
     height: 16.1rem;
     background: rgba(255, 255, 255, 0.2);
     -webkit-backdrop-filter: blur(6px);
             backdrop-filter: blur(6px);
+  }
+}
+@media screen and (max-width: 1023.98px) {
+  .hero__form {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10rem;
+    z-index: 1100;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    padding-top: 5rem;
+    padding-left: 3.4rem;
+    background-color: #1A3E3E;
+    transition: all 0.3s ease-in-out;
+    overflow: auto;
+    transform: translateX(-100dvw);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .hero__form.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 
@@ -818,11 +847,6 @@ body {
 .form__item {
   position: relative;
 }
-@media screen and (max-width: 1023.98px) {
-  .form__item {
-    display: none;
-  }
-}
 
 .dropdawn_date__box_hiden,
 .dropdown__input_hidden {
@@ -845,7 +869,7 @@ body {
   background: transparent;
 }
 
-.dropdown_date__button::after {
+.dropdown__button_date::after {
   content: "";
   position: absolute;
   top: 1.6rem;
@@ -856,7 +880,7 @@ body {
   background: center/contain no-repeat url(../imgs/hero/formkit_date.svg);
 }
 
-.dropdown__button::after {
+.dropdown__button_dec::after {
   content: "";
   position: absolute;
   top: 1.6rem;
@@ -876,7 +900,16 @@ body {
   border-radius: 0.8rem;
   padding-inline: 1.4rem;
   cursor: pointer;
-  background-color: rgba(26, 62, 62, 0.75);
+}
+@media screen and (min-width: 1024px) {
+  .dropdown__list {
+    background-color: rgba(26, 62, 62, 0.75);
+  }
+}
+@media screen and (max-width: 1023.98px) {
+  .dropdown__list {
+    background-color: #1A3E3E;
+  }
 }
 .dropdown__list.dropdown__list--visible {
   display: block;
@@ -884,6 +917,67 @@ body {
 
 .dropdown__item:hover {
   background-color: #1A3E3E;
+}
+
+.dropdown_date__input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #FDFDFD;
+  background-color: transparent;
+  border: none;
+}
+
+.hiden_form_button {
+  position: absolute;
+  top: 4rem;
+  right: 3.3rem;
+  width: 3rem;
+  height: 3rem;
+}
+.hiden_form_button > span {
+  position: absolute;
+  left: 0.4rem;
+  width: 2.1rem;
+  height: 0.4rem;
+  border-radius: 0.2rem;
+  background-color: #fff;
+}
+.hiden_form_button > span:first-child {
+  transform: rotate(45deg);
+}
+.hiden_form_button > span:last-child {
+  transform: rotate(-45deg);
+}
+@media screen and (min-width: 1024px) {
+  .hiden_form_button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .button_for_mobile_w {
+    display: none;
+  }
+}
+@media screen and (max-width: 1023.98px) {
+  .button_for_mobile_w {
+    display: block;
+  }
+}
+
+.marked {
+  color: #F2BE22;
+}
+
+.invalid {
+  border: 3px solid red;
+}
+
+.valid {
+  border: 1px solid green;
 }
 
 .our_hike__player_wrap {
